@@ -1,25 +1,24 @@
 package com.driver.model;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
+import javax.persistence.*;
 
 @Entity
+@Table(name="admin")
 public class Admin {
     @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer adminId;
+
     private String username;
+
     private String password;
 
-    public Admin() {
-    }
-
-    public Admin(Integer adminId, String username, String password) {
-        this.adminId = adminId;
+    public Admin(String username, String password) {
         this.username = username;
         this.password = password;
+    }
+
+    public Admin() {
     }
 
     public Integer getAdminId() {
